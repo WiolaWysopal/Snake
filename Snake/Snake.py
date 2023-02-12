@@ -88,6 +88,19 @@ while True:
         vertebra.color("magenta")
         vertebra.penup()   #makes sure, that new element doesn't show on a screen
         corpus.append(vertebra)
+   
+    # Moving the end vertebra first in reverse order
+    for i in range(len(corpus) - 1, 0, -1):
+        x = corpus[i - 1].xcor()
+        y = corpus[i - 1].ycor()
+        corpus[i].goto(x, y)
+
+    # Move first vertebra after head to where the head is
+    if len(corpus) > 0:
+        x = head.xcor()
+        y = head.ycor()
+        corpus[0].goto(x, y)
+
         
     move() #calling function responsible for snake's moves
     time.sleep(delay) #without this snake wouldn't be able to see - it would move to fast to human eye coud see and the screen would be seem as empty
