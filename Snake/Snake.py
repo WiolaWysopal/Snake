@@ -78,6 +78,19 @@ wn.onkeypress(go_stop, "space") #after pressing space snake stops
 while True:
     wn.update() #every time in the loop updates the screen; forced by 'tracer' function which stops refreshing screen
     
+    # Bouncing from the edge
+    if (head.xcor() > 290 or head.xcor() < -290 or
+        head.ycor() > 290 or head.ycor() < -290):
+        time.sleep(delay)
+        head.goto(0, 0)
+        head.direction = "stop"
+        # this loop is responsible for deleting vertebras from corpus;
+        # we have to do it this way; in turtle module there's no way to
+        # delete the segments from the memory
+        for vert in corpus:
+            vert.goto(2*width, 2*height)
+        corpus.clear() # without it verts gonna still appear
+
     if head.distance(dot) < dist:
         dot.goto(random.randint(-290, 290), random.randint(-290, 290))
     
@@ -113,4 +126,3 @@ wn.mainloop() # this keep window open for all time of program running
 
 #TODO: How to find way to unhardcoding drawing a coordinates of dot-appearing?
 #TODO: Split code into lesser parts
-#TODO: Bouncing from the edges of canvas
