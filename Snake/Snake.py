@@ -77,7 +77,7 @@ wn.onkeypress(go_stop, "space") #after pressing space snake stops
 #Main game loop
 while True:
     wn.update() #every time in the loop updates the screen; forced by 'tracer' function which stops refreshing screen
-    
+
     # Bouncing from the edge
     if (head.xcor() > 290 or head.xcor() < -290 or
         head.ycor() > 290 or head.ycor() < -290):
@@ -116,6 +116,17 @@ while True:
 
         
     move() #calling function responsible for snake's moves
+    for corp in corpus:
+        if corp.distance(head) < dist:
+            time.sleep(1)
+            head.goto(0,0)
+            head.direction = "stop"
+        # delete the segments from the memory
+            for vert in corpus:
+                vert.goto(2*width, 2*height)
+            corpus.clear() # without it verts gonna still appear
+            #clearing list of vertebras
+
     time.sleep(delay) #without this snake wouldn't be able to see - it would move to fast to human eye coud see and the screen would be seem as empty
 
 
