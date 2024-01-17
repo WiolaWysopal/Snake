@@ -132,8 +132,3 @@ while True:
 
 
 wn.mainloop() # this keep window open for all time of program running
-
-
-
-#TODO: How to find way to unhardcoding drawing a coordinates of dot-appearing?
-#TODO: Split code into lesser parts
