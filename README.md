@@ -22,6 +22,7 @@ The core part of the game is the while _True_ main loop, which handles the game 
 2. Open or import the downloaded game repository.
 3. Ensure you have Python installed and configured in the IDE.
 4. Find the main game file (e.g., `main.py`) in the project.
+5. Run project using _Run_ option (or similar).
 
 ### 🏆 Sample gameplay
 
